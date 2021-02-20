@@ -18,36 +18,22 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeQuotaData返回参数结构体
+ * DescribePostpayFreeQuotas返回参数结构体
  *
- * @method string getMetricName() 获取指标名
- * @method void setMetricName(string $MetricName) 设置指标名
- * @method integer getValue() 获取指标的值
- * @method void setValue(integer $Value) 设置指标的值
- * @method string getSubValue() 获取指标的附加值信息
+ * @method array getFreequotaInfoList() 获取免费量资源信息列表
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setSubValue(string $SubValue) 设置指标的附加值信息
+ * @method void setFreequotaInfoList(array $FreequotaInfoList) 设置免费量资源信息列表
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeQuotaDataResponse extends AbstractModel
+class DescribePostpayFreeQuotasResponse extends AbstractModel
 {
     /**
-     * @var string 指标名
-     */
-    public $MetricName;
-
-    /**
-     * @var integer 指标的值
-     */
-    public $Value;
-
-    /**
-     * @var string 指标的附加值信息
+     * @var array 免费量资源信息列表
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $SubValue;
+    public $FreequotaInfoList;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -55,9 +41,7 @@ class DescribeQuotaDataResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $MetricName 指标名
-     * @param integer $Value 指标的值
-     * @param string $SubValue 指标的附加值信息
+     * @param array $FreequotaInfoList 免费量资源信息列表
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
@@ -74,16 +58,13 @@ class DescribeQuotaDataResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("MetricName",$param) and $param["MetricName"] !== null) {
-            $this->MetricName = $param["MetricName"];
-        }
-
-        if (array_key_exists("Value",$param) and $param["Value"] !== null) {
-            $this->Value = $param["Value"];
-        }
-
-        if (array_key_exists("SubValue",$param) and $param["SubValue"] !== null) {
-            $this->SubValue = $param["SubValue"];
+        if (array_key_exists("FreequotaInfoList",$param) and $param["FreequotaInfoList"] !== null) {
+            $this->FreequotaInfoList = [];
+            foreach ($param["FreequotaInfoList"] as $key => $value){
+                $obj = new FreequotaInfo();
+                $obj->deserialize($value);
+                array_push($this->FreequotaInfoList, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

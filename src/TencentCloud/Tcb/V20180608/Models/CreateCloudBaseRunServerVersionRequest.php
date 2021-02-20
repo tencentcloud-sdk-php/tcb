@@ -80,6 +80,18 @@ use TencentCloud\Common\AbstractModel;
  * @method void setEsInfo(CloudBaseEsInfo $EsInfo) 设置es信息
  * @method boolean getEnableUnion() 获取是否使用统一域名
  * @method void setEnableUnion(boolean $EnableUnion) 设置是否使用统一域名
+ * @method string getOperatorRemark() 获取操作备注
+ * @method void setOperatorRemark(string $OperatorRemark) 设置操作备注
+ * @method string getServerPath() 获取服务路径
+ * @method void setServerPath(string $ServerPath) 设置服务路径
+ * @method string getImageReuseKey() 获取镜像复用的key
+ * @method void setImageReuseKey(string $ImageReuseKey) 设置镜像复用的key
+ * @method array getSidecarSpecs() 获取容器的描述文件
+ * @method void setSidecarSpecs(array $SidecarSpecs) 设置容器的描述文件
+ * @method CloudBaseSecurityContext getSecurity() 获取安全特性
+ * @method void setSecurity(CloudBaseSecurityContext $Security) 设置安全特性
+ * @method array getServiceVolumes() 获取服务磁盘挂载
+ * @method void setServiceVolumes(array $ServiceVolumes) 设置服务磁盘挂载
  */
 class CreateCloudBaseRunServerVersionRequest extends AbstractModel
 {
@@ -234,6 +246,36 @@ class CreateCloudBaseRunServerVersionRequest extends AbstractModel
     public $EnableUnion;
 
     /**
+     * @var string 操作备注
+     */
+    public $OperatorRemark;
+
+    /**
+     * @var string 服务路径
+     */
+    public $ServerPath;
+
+    /**
+     * @var string 镜像复用的key
+     */
+    public $ImageReuseKey;
+
+    /**
+     * @var array 容器的描述文件
+     */
+    public $SidecarSpecs;
+
+    /**
+     * @var CloudBaseSecurityContext 安全特性
+     */
+    public $Security;
+
+    /**
+     * @var array 服务磁盘挂载
+     */
+    public $ServiceVolumes;
+
+    /**
      * @param string $EnvId 环境ID
      * @param string $UploadType 枚举（package/repository/image)
      * @param integer $FlowRatio 流量占比
@@ -264,6 +306,12 @@ class CreateCloudBaseRunServerVersionRequest extends AbstractModel
      * @param integer $AccessType 4 代表只能微信链路访问
      * @param CloudBaseEsInfo $EsInfo es信息
      * @param boolean $EnableUnion 是否使用统一域名
+     * @param string $OperatorRemark 操作备注
+     * @param string $ServerPath 服务路径
+     * @param string $ImageReuseKey 镜像复用的key
+     * @param array $SidecarSpecs 容器的描述文件
+     * @param CloudBaseSecurityContext $Security 安全特性
+     * @param array $ServiceVolumes 服务磁盘挂载
      */
     function __construct()
     {
@@ -405,6 +453,41 @@ class CreateCloudBaseRunServerVersionRequest extends AbstractModel
 
         if (array_key_exists("EnableUnion",$param) and $param["EnableUnion"] !== null) {
             $this->EnableUnion = $param["EnableUnion"];
+        }
+
+        if (array_key_exists("OperatorRemark",$param) and $param["OperatorRemark"] !== null) {
+            $this->OperatorRemark = $param["OperatorRemark"];
+        }
+
+        if (array_key_exists("ServerPath",$param) and $param["ServerPath"] !== null) {
+            $this->ServerPath = $param["ServerPath"];
+        }
+
+        if (array_key_exists("ImageReuseKey",$param) and $param["ImageReuseKey"] !== null) {
+            $this->ImageReuseKey = $param["ImageReuseKey"];
+        }
+
+        if (array_key_exists("SidecarSpecs",$param) and $param["SidecarSpecs"] !== null) {
+            $this->SidecarSpecs = [];
+            foreach ($param["SidecarSpecs"] as $key => $value){
+                $obj = new CloudBaseRunSideSpec();
+                $obj->deserialize($value);
+                array_push($this->SidecarSpecs, $obj);
+            }
+        }
+
+        if (array_key_exists("Security",$param) and $param["Security"] !== null) {
+            $this->Security = new CloudBaseSecurityContext();
+            $this->Security->deserialize($param["Security"]);
+        }
+
+        if (array_key_exists("ServiceVolumes",$param) and $param["ServiceVolumes"] !== null) {
+            $this->ServiceVolumes = [];
+            foreach ($param["ServiceVolumes"] as $key => $value){
+                $obj = new CloudRunServiceVolume();
+                $obj->deserialize($value);
+                array_push($this->ServiceVolumes, $obj);
+            }
         }
     }
 }

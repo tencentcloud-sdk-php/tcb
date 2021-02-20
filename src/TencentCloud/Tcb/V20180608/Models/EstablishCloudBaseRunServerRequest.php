@@ -34,6 +34,14 @@ use TencentCloud\Common\AbstractModel;
  * @method void setEsInfo(CloudBaseEsInfo $EsInfo) 设置es信息
  * @method string getLogType() 获取日志类型; es/cls
  * @method void setLogType(string $LogType) 设置日志类型; es/cls
+ * @method string getOperatorRemark() 获取操作备注
+ * @method void setOperatorRemark(string $OperatorRemark) 设置操作备注
+ * @method string getSource() 获取来源方（默认值：qcloud，微信侧来源miniapp)
+ * @method void setSource(string $Source) 设置来源方（默认值：qcloud，微信侧来源miniapp)
+ * @method CloudBaseRunVpcInfo getVpcInfo() 获取vpc信息
+ * @method void setVpcInfo(CloudBaseRunVpcInfo $VpcInfo) 设置vpc信息
+ * @method integer getPublicAccess() 获取0/1=允许公网访问;2=关闭公网访问
+ * @method void setPublicAccess(integer $PublicAccess) 设置0/1=允许公网访问;2=关闭公网访问
  */
 class EstablishCloudBaseRunServerRequest extends AbstractModel
 {
@@ -73,6 +81,26 @@ class EstablishCloudBaseRunServerRequest extends AbstractModel
     public $LogType;
 
     /**
+     * @var string 操作备注
+     */
+    public $OperatorRemark;
+
+    /**
+     * @var string 来源方（默认值：qcloud，微信侧来源miniapp)
+     */
+    public $Source;
+
+    /**
+     * @var CloudBaseRunVpcInfo vpc信息
+     */
+    public $VpcInfo;
+
+    /**
+     * @var integer 0/1=允许公网访问;2=关闭公网访问
+     */
+    public $PublicAccess;
+
+    /**
      * @param string $EnvId 环境id
      * @param string $ServiceName 服务名称
      * @param boolean $IsPublic 是否开通外网访问
@@ -80,6 +108,10 @@ class EstablishCloudBaseRunServerRequest extends AbstractModel
      * @param string $Remark 服务描述
      * @param CloudBaseEsInfo $EsInfo es信息
      * @param string $LogType 日志类型; es/cls
+     * @param string $OperatorRemark 操作备注
+     * @param string $Source 来源方（默认值：qcloud，微信侧来源miniapp)
+     * @param CloudBaseRunVpcInfo $VpcInfo vpc信息
+     * @param integer $PublicAccess 0/1=允许公网访问;2=关闭公网访问
      */
     function __construct()
     {
@@ -121,6 +153,23 @@ class EstablishCloudBaseRunServerRequest extends AbstractModel
 
         if (array_key_exists("LogType",$param) and $param["LogType"] !== null) {
             $this->LogType = $param["LogType"];
+        }
+
+        if (array_key_exists("OperatorRemark",$param) and $param["OperatorRemark"] !== null) {
+            $this->OperatorRemark = $param["OperatorRemark"];
+        }
+
+        if (array_key_exists("Source",$param) and $param["Source"] !== null) {
+            $this->Source = $param["Source"];
+        }
+
+        if (array_key_exists("VpcInfo",$param) and $param["VpcInfo"] !== null) {
+            $this->VpcInfo = new CloudBaseRunVpcInfo();
+            $this->VpcInfo->deserialize($param["VpcInfo"]);
+        }
+
+        if (array_key_exists("PublicAccess",$param) and $param["PublicAccess"] !== null) {
+            $this->PublicAccess = $param["PublicAccess"];
         }
     }
 }
