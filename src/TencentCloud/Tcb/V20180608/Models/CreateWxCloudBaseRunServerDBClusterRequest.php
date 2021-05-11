@@ -18,44 +18,36 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ModifyEndUser请求参数结构体
+ * CreateWxCloudBaseRunServerDBCluster请求参数结构体
  *
+ * @method string getAccountPassword() 获取账户密码
+ * @method void setAccountPassword(string $AccountPassword) 设置账户密码
  * @method string getEnvId() 获取环境ID
  * @method void setEnvId(string $EnvId) 设置环境ID
- * @method string getUUId() 获取C端用户端的唯一ID
- * @method void setUUId(string $UUId) 设置C端用户端的唯一ID
- * @method string getStatus() 获取帐号的状态
-<li>ENABLE</li>
-<li>DISABLE</li>
- * @method void setStatus(string $Status) 设置帐号的状态
-<li>ENABLE</li>
-<li>DISABLE</li>
+ * @method string getWxAppId() 获取微信appid
+ * @method void setWxAppId(string $WxAppId) 设置微信appid
  */
-class ModifyEndUserRequest extends AbstractModel
+class CreateWxCloudBaseRunServerDBClusterRequest extends AbstractModel
 {
+    /**
+     * @var string 账户密码
+     */
+    public $AccountPassword;
+
     /**
      * @var string 环境ID
      */
     public $EnvId;
 
     /**
-     * @var string C端用户端的唯一ID
+     * @var string 微信appid
      */
-    public $UUId;
+    public $WxAppId;
 
     /**
-     * @var string 帐号的状态
-<li>ENABLE</li>
-<li>DISABLE</li>
-     */
-    public $Status;
-
-    /**
+     * @param string $AccountPassword 账户密码
      * @param string $EnvId 环境ID
-     * @param string $UUId C端用户端的唯一ID
-     * @param string $Status 帐号的状态
-<li>ENABLE</li>
-<li>DISABLE</li>
+     * @param string $WxAppId 微信appid
      */
     function __construct()
     {
@@ -70,16 +62,16 @@ class ModifyEndUserRequest extends AbstractModel
         if ($param === null) {
             return;
         }
+        if (array_key_exists("AccountPassword",$param) and $param["AccountPassword"] !== null) {
+            $this->AccountPassword = $param["AccountPassword"];
+        }
+
         if (array_key_exists("EnvId",$param) and $param["EnvId"] !== null) {
             $this->EnvId = $param["EnvId"];
         }
 
-        if (array_key_exists("UUId",$param) and $param["UUId"] !== null) {
-            $this->UUId = $param["UUId"];
-        }
-
-        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
-            $this->Status = $param["Status"];
+        if (array_key_exists("WxAppId",$param) and $param["WxAppId"] !== null) {
+            $this->WxAppId = $param["WxAppId"];
         }
     }
 }
