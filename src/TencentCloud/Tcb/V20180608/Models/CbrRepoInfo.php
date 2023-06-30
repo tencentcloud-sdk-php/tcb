@@ -18,64 +18,60 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * FreezeCloudBaseRunServers返回参数结构体
+ * 仓库信息
  *
- * @method string getResult() 获取批量状态
-成功：succ
-失败：fail
-部分：partial（部分成功、部分失败）
+ * @method string getRepo() 获取仓库名称
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRepo(string $Repo) 设置仓库名称
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setResult(string $Result) 设置批量状态
-成功：succ
-失败：fail
-部分：partial（部分成功、部分失败）
+ * @method string getRepoType() 获取仓库平台
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRepoType(string $RepoType) 设置仓库平台
 注意：此字段可能返回 null，表示取不到有效值。
- * @method array getFailServerList() 获取冻结失败服务列表
+ * @method string getRepoLanguage() 获取仓库语言
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRepoLanguage(string $RepoLanguage) 设置仓库语言
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setFailServerList(array $FailServerList) 设置冻结失败服务列表
+ * @method string getBranch() 获取分支名称
 注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setBranch(string $Branch) 设置分支名称
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
- * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class FreezeCloudBaseRunServersResponse extends AbstractModel
+class CbrRepoInfo extends AbstractModel
 {
     /**
-     * @var string 批量状态
-成功：succ
-失败：fail
-部分：partial（部分成功、部分失败）
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 仓库名称
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Result;
+    public $Repo;
 
     /**
-     * @var array 冻结失败服务列表
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var string 仓库平台
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $FailServerList;
+    public $RepoType;
 
     /**
-     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @var string 仓库语言
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $RequestId;
+    public $RepoLanguage;
 
     /**
-     * @param string $Result 批量状态
-成功：succ
-失败：fail
-部分：partial（部分成功、部分失败）
+     * @var string 分支名称
 注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $Branch;
+
+    /**
+     * @param string $Repo 仓库名称
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param array $FailServerList 冻结失败服务列表
+     * @param string $RepoType 仓库平台
 注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $RepoLanguage 仓库语言
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+     * @param string $Branch 分支名称
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -90,16 +86,20 @@ class FreezeCloudBaseRunServersResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Result",$param) and $param["Result"] !== null) {
-            $this->Result = $param["Result"];
+        if (array_key_exists("Repo",$param) and $param["Repo"] !== null) {
+            $this->Repo = $param["Repo"];
         }
 
-        if (array_key_exists("FailServerList",$param) and $param["FailServerList"] !== null) {
-            $this->FailServerList = $param["FailServerList"];
+        if (array_key_exists("RepoType",$param) and $param["RepoType"] !== null) {
+            $this->RepoType = $param["RepoType"];
         }
 
-        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
-            $this->RequestId = $param["RequestId"];
+        if (array_key_exists("RepoLanguage",$param) and $param["RepoLanguage"] !== null) {
+            $this->RepoLanguage = $param["RepoLanguage"];
+        }
+
+        if (array_key_exists("Branch",$param) and $param["Branch"] !== null) {
+            $this->Branch = $param["Branch"];
         }
     }
 }

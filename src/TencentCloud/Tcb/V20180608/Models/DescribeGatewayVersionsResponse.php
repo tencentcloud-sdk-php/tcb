@@ -18,19 +18,33 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeAuthDomains返回参数结构体
+ * DescribeGatewayVersions返回参数结构体
  *
- * @method array getDomains() 获取安全域名列表
- * @method void setDomains(array $Domains) 设置安全域名列表
+ * @method string getGatewayId() 获取网关id
+ * @method void setGatewayId(string $GatewayId) 设置网关id
+ * @method integer getTotalCount() 获取版本总数
+ * @method void setTotalCount(integer $TotalCount) 设置版本总数
+ * @method array getGatewayVersionItems() 获取版本信息详情
+ * @method void setGatewayVersionItems(array $GatewayVersionItems) 设置版本信息详情
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeAuthDomainsResponse extends AbstractModel
+class DescribeGatewayVersionsResponse extends AbstractModel
 {
     /**
-     * @var array 安全域名列表
+     * @var string 网关id
      */
-    public $Domains;
+    public $GatewayId;
+
+    /**
+     * @var integer 版本总数
+     */
+    public $TotalCount;
+
+    /**
+     * @var array 版本信息详情
+     */
+    public $GatewayVersionItems;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +52,9 @@ class DescribeAuthDomainsResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $Domains 安全域名列表
+     * @param string $GatewayId 网关id
+     * @param integer $TotalCount 版本总数
+     * @param array $GatewayVersionItems 版本信息详情
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,12 +70,20 @@ class DescribeAuthDomainsResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Domains",$param) and $param["Domains"] !== null) {
-            $this->Domains = [];
-            foreach ($param["Domains"] as $key => $value){
-                $obj = new AuthDomain();
+        if (array_key_exists("GatewayId",$param) and $param["GatewayId"] !== null) {
+            $this->GatewayId = $param["GatewayId"];
+        }
+
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
+        }
+
+        if (array_key_exists("GatewayVersionItems",$param) and $param["GatewayVersionItems"] !== null) {
+            $this->GatewayVersionItems = [];
+            foreach ($param["GatewayVersionItems"] as $key => $value){
+                $obj = new GatewayVersionItem();
                 $obj->deserialize($value);
-                array_push($this->Domains, $obj);
+                array_push($this->GatewayVersionItems, $obj);
             }
         }
 

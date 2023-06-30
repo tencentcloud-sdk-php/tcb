@@ -18,19 +18,19 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeAuthDomains返回参数结构体
+ * DescribeBillingInfo返回参数结构体
  *
- * @method array getDomains() 获取安全域名列表
- * @method void setDomains(array $Domains) 设置安全域名列表
+ * @method array getEnvBillingInfoList() 获取环境计费信息列表
+ * @method void setEnvBillingInfoList(array $EnvBillingInfoList) 设置环境计费信息列表
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeAuthDomainsResponse extends AbstractModel
+class DescribeBillingInfoResponse extends AbstractModel
 {
     /**
-     * @var array 安全域名列表
+     * @var array 环境计费信息列表
      */
-    public $Domains;
+    public $EnvBillingInfoList;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class DescribeAuthDomainsResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $Domains 安全域名列表
+     * @param array $EnvBillingInfoList 环境计费信息列表
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,12 +54,12 @@ class DescribeAuthDomainsResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Domains",$param) and $param["Domains"] !== null) {
-            $this->Domains = [];
-            foreach ($param["Domains"] as $key => $value){
-                $obj = new AuthDomain();
+        if (array_key_exists("EnvBillingInfoList",$param) and $param["EnvBillingInfoList"] !== null) {
+            $this->EnvBillingInfoList = [];
+            foreach ($param["EnvBillingInfoList"] as $key => $value){
+                $obj = new EnvBillingInfoItem();
                 $obj->deserialize($value);
-                array_push($this->Domains, $obj);
+                array_push($this->EnvBillingInfoList, $obj);
             }
         }
 
