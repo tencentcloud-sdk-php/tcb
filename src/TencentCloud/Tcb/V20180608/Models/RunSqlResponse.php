@@ -18,19 +18,33 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * SearchClsLog返回参数结构体
+ * RunSql返回参数结构体
  *
- * @method LogResObject getLogResults() 获取日志内容结果
- * @method void setLogResults(LogResObject $LogResults) 设置日志内容结果
+ * @method array getItems() 获取查询结果行，每个元素为 JSON 字符串
+ * @method void setItems(array $Items) 设置查询结果行，每个元素为 JSON 字符串
+ * @method array getInfos() 获取列元数据信息，每个元素为 JSON 字符串，字段包含 `name/databaseType/nullable/length/precision/scale`
+ * @method void setInfos(array $Infos) 设置列元数据信息，每个元素为 JSON 字符串，字段包含 `name/databaseType/nullable/length/precision/scale`
+ * @method integer getRowsAffected() 获取受影响的行数（INSERT/UPDATE/DELETE 等语句）
+ * @method void setRowsAffected(integer $RowsAffected) 设置受影响的行数（INSERT/UPDATE/DELETE 等语句）
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class SearchClsLogResponse extends AbstractModel
+class RunSqlResponse extends AbstractModel
 {
     /**
-     * @var LogResObject 日志内容结果
+     * @var array 查询结果行，每个元素为 JSON 字符串
      */
-    public $LogResults;
+    public $Items;
+
+    /**
+     * @var array 列元数据信息，每个元素为 JSON 字符串，字段包含 `name/databaseType/nullable/length/precision/scale`
+     */
+    public $Infos;
+
+    /**
+     * @var integer 受影响的行数（INSERT/UPDATE/DELETE 等语句）
+     */
+    public $RowsAffected;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +52,9 @@ class SearchClsLogResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param LogResObject $LogResults 日志内容结果
+     * @param array $Items 查询结果行，每个元素为 JSON 字符串
+     * @param array $Infos 列元数据信息，每个元素为 JSON 字符串，字段包含 `name/databaseType/nullable/length/precision/scale`
+     * @param integer $RowsAffected 受影响的行数（INSERT/UPDATE/DELETE 等语句）
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,9 +70,16 @@ class SearchClsLogResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LogResults",$param) and $param["LogResults"] !== null) {
-            $this->LogResults = new LogResObject();
-            $this->LogResults->deserialize($param["LogResults"]);
+        if (array_key_exists("Items",$param) and $param["Items"] !== null) {
+            $this->Items = $param["Items"];
+        }
+
+        if (array_key_exists("Infos",$param) and $param["Infos"] !== null) {
+            $this->Infos = $param["Infos"];
+        }
+
+        if (array_key_exists("RowsAffected",$param) and $param["RowsAffected"] !== null) {
+            $this->RowsAffected = $param["RowsAffected"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
