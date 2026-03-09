@@ -18,40 +18,22 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeEnvDealRegion返回参数结构体
+ * RunCommands返回参数结构体
  *
- * @method string getRegion() 获取下单region
- * @method void setRegion(string $Region) 设置下单region
- * @method string getZone() 获取下单zone
- * @method void setZone(string $Zone) 设置下单zone
- * @method integer getRegionId() 获取下单regionId
- * @method void setRegionId(integer $RegionId) 设置下单regionId
- * @method integer getZoneId() 获取下单zoneId
- * @method void setZoneId(integer $ZoneId) 设置下单zoneId
+ * @method array getData() 获取返回结果，返回结果为一个json字符串
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setData(array $Data) 设置返回结果，返回结果为一个json字符串
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeEnvDealRegionResponse extends AbstractModel
+class RunCommandsResponse extends AbstractModel
 {
     /**
-     * @var string 下单region
+     * @var array 返回结果，返回结果为一个json字符串
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Region;
-
-    /**
-     * @var string 下单zone
-     */
-    public $Zone;
-
-    /**
-     * @var integer 下单regionId
-     */
-    public $RegionId;
-
-    /**
-     * @var integer 下单zoneId
-     */
-    public $ZoneId;
+    public $Data;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -59,10 +41,8 @@ class DescribeEnvDealRegionResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $Region 下单region
-     * @param string $Zone 下单zone
-     * @param integer $RegionId 下单regionId
-     * @param integer $ZoneId 下单zoneId
+     * @param array $Data 返回结果，返回结果为一个json字符串
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -78,20 +58,8 @@ class DescribeEnvDealRegionResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Region",$param) and $param["Region"] !== null) {
-            $this->Region = $param["Region"];
-        }
-
-        if (array_key_exists("Zone",$param) and $param["Zone"] !== null) {
-            $this->Zone = $param["Zone"];
-        }
-
-        if (array_key_exists("RegionId",$param) and $param["RegionId"] !== null) {
-            $this->RegionId = $param["RegionId"];
-        }
-
-        if (array_key_exists("ZoneId",$param) and $param["ZoneId"] !== null) {
-            $this->ZoneId = $param["ZoneId"];
+        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+            $this->Data = $param["Data"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

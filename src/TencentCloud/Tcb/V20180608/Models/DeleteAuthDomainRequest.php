@@ -18,20 +18,28 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeExtraPkgBillingInfo请求参数结构体
+ * DeleteAuthDomain请求参数结构体
  *
- * @method string getEnvId() 获取已购买增值包的环境ID
- * @method void setEnvId(string $EnvId) 设置已购买增值包的环境ID
+ * @method string getEnvId() 获取开发者的环境ID
+ * @method void setEnvId(string $EnvId) 设置开发者的环境ID
+ * @method array getDomainIds() 获取域名ID列表，支持批量
+ * @method void setDomainIds(array $DomainIds) 设置域名ID列表，支持批量
  */
-class DescribeExtraPkgBillingInfoRequest extends AbstractModel
+class DeleteAuthDomainRequest extends AbstractModel
 {
     /**
-     * @var string 已购买增值包的环境ID
+     * @var string 开发者的环境ID
      */
     public $EnvId;
 
     /**
-     * @param string $EnvId 已购买增值包的环境ID
+     * @var array 域名ID列表，支持批量
+     */
+    public $DomainIds;
+
+    /**
+     * @param string $EnvId 开发者的环境ID
+     * @param array $DomainIds 域名ID列表，支持批量
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class DescribeExtraPkgBillingInfoRequest extends AbstractModel
         }
         if (array_key_exists("EnvId",$param) and $param["EnvId"] !== null) {
             $this->EnvId = $param["EnvId"];
+        }
+
+        if (array_key_exists("DomainIds",$param) and $param["DomainIds"] !== null) {
+            $this->DomainIds = $param["DomainIds"];
         }
     }
 }
