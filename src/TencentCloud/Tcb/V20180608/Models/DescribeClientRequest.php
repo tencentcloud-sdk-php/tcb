@@ -18,28 +18,28 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteAuthDomain请求参数结构体
+ * DescribeClient请求参数结构体
  *
- * @method string getEnvId() 获取开发者的环境ID
- * @method void setEnvId(string $EnvId) 设置开发者的环境ID
- * @method array getDomainIds() 获取域名ID列表，支持批量传递
- * @method void setDomainIds(array $DomainIds) 设置域名ID列表，支持批量传递
+ * @method string getEnvId() 获取环境ID
+ * @method void setEnvId(string $EnvId) 设置环境ID
+ * @method string getId() 获取客户端的唯一标识符（Client ID），在 OAuth/OIDC 授权流程中作为 client_id 参数使用，创建后不可修改，一般使用环境id
+ * @method void setId(string $Id) 设置客户端的唯一标识符（Client ID），在 OAuth/OIDC 授权流程中作为 client_id 参数使用，创建后不可修改，一般使用环境id
  */
-class DeleteAuthDomainRequest extends AbstractModel
+class DescribeClientRequest extends AbstractModel
 {
     /**
-     * @var string 开发者的环境ID
+     * @var string 环境ID
      */
     public $EnvId;
 
     /**
-     * @var array 域名ID列表，支持批量传递
+     * @var string 客户端的唯一标识符（Client ID），在 OAuth/OIDC 授权流程中作为 client_id 参数使用，创建后不可修改，一般使用环境id
      */
-    public $DomainIds;
+    public $Id;
 
     /**
-     * @param string $EnvId 开发者的环境ID
-     * @param array $DomainIds 域名ID列表，支持批量传递
+     * @param string $EnvId 环境ID
+     * @param string $Id 客户端的唯一标识符（Client ID），在 OAuth/OIDC 授权流程中作为 client_id 参数使用，创建后不可修改，一般使用环境id
      */
     function __construct()
     {
@@ -58,8 +58,8 @@ class DeleteAuthDomainRequest extends AbstractModel
             $this->EnvId = $param["EnvId"];
         }
 
-        if (array_key_exists("DomainIds",$param) and $param["DomainIds"] !== null) {
-            $this->DomainIds = $param["DomainIds"];
+        if (array_key_exists("Id",$param) and $param["Id"] !== null) {
+            $this->Id = $param["Id"];
         }
     }
 }

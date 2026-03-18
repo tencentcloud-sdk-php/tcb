@@ -18,28 +18,20 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteAuthDomain请求参数结构体
+ * GetProviders请求参数结构体
  *
- * @method string getEnvId() 获取开发者的环境ID
- * @method void setEnvId(string $EnvId) 设置开发者的环境ID
- * @method array getDomainIds() 获取域名ID列表，支持批量传递
- * @method void setDomainIds(array $DomainIds) 设置域名ID列表，支持批量传递
+ * @method string getEnvId() 获取环境 ID，用于指定需要查询配置第三方身份源的云开发环境。
+ * @method void setEnvId(string $EnvId) 设置环境 ID，用于指定需要查询配置第三方身份源的云开发环境。
  */
-class DeleteAuthDomainRequest extends AbstractModel
+class GetProvidersRequest extends AbstractModel
 {
     /**
-     * @var string 开发者的环境ID
+     * @var string 环境 ID，用于指定需要查询配置第三方身份源的云开发环境。
      */
     public $EnvId;
 
     /**
-     * @var array 域名ID列表，支持批量传递
-     */
-    public $DomainIds;
-
-    /**
-     * @param string $EnvId 开发者的环境ID
-     * @param array $DomainIds 域名ID列表，支持批量传递
+     * @param string $EnvId 环境 ID，用于指定需要查询配置第三方身份源的云开发环境。
      */
     function __construct()
     {
@@ -56,10 +48,6 @@ class DeleteAuthDomainRequest extends AbstractModel
         }
         if (array_key_exists("EnvId",$param) and $param["EnvId"] !== null) {
             $this->EnvId = $param["EnvId"];
-        }
-
-        if (array_key_exists("DomainIds",$param) and $param["DomainIds"] !== null) {
-            $this->DomainIds = $param["DomainIds"];
         }
     }
 }

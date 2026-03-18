@@ -18,28 +18,28 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteAuthDomain请求参数结构体
+ * 多语言文字，在 Locale 中 展示的 Message
  *
- * @method string getEnvId() 获取开发者的环境ID
- * @method void setEnvId(string $EnvId) 设置开发者的环境ID
- * @method array getDomainIds() 获取域名ID列表，支持批量传递
- * @method void setDomainIds(array $DomainIds) 设置域名ID列表，支持批量传递
+ * @method string getMessage() 获取字符串
+ * @method void setMessage(string $Message) 设置字符串
+ * @method string getLocale() 获取在该语言中
+ * @method void setLocale(string $Locale) 设置在该语言中
  */
-class DeleteAuthDomainRequest extends AbstractModel
+class MessageLocalized extends AbstractModel
 {
     /**
-     * @var string 开发者的环境ID
+     * @var string 字符串
      */
-    public $EnvId;
+    public $Message;
 
     /**
-     * @var array 域名ID列表，支持批量传递
+     * @var string 在该语言中
      */
-    public $DomainIds;
+    public $Locale;
 
     /**
-     * @param string $EnvId 开发者的环境ID
-     * @param array $DomainIds 域名ID列表，支持批量传递
+     * @param string $Message 字符串
+     * @param string $Locale 在该语言中
      */
     function __construct()
     {
@@ -54,12 +54,12 @@ class DeleteAuthDomainRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("EnvId",$param) and $param["EnvId"] !== null) {
-            $this->EnvId = $param["EnvId"];
+        if (array_key_exists("Message",$param) and $param["Message"] !== null) {
+            $this->Message = $param["Message"];
         }
 
-        if (array_key_exists("DomainIds",$param) and $param["DomainIds"] !== null) {
-            $this->DomainIds = $param["DomainIds"];
+        if (array_key_exists("Locale",$param) and $param["Locale"] !== null) {
+            $this->Locale = $param["Locale"];
         }
     }
 }

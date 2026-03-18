@@ -18,28 +18,28 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteAuthDomain请求参数结构体
+ * vm规格
  *
- * @method string getEnvId() 获取开发者的环境ID
- * @method void setEnvId(string $EnvId) 设置开发者的环境ID
- * @method array getDomainIds() 获取域名ID列表，支持批量传递
- * @method void setDomainIds(array $DomainIds) 设置域名ID列表，支持批量传递
+ * @method string getBundleId() 获取LH主机的BundleId
+ * @method void setBundleId(string $BundleId) 设置LH主机的BundleId
+ * @method string getBundleConfig() 获取主机配置详情json
+ * @method void setBundleConfig(string $BundleConfig) 设置主机配置详情json
  */
-class DeleteAuthDomainRequest extends AbstractModel
+class VMSpecLightHouse extends AbstractModel
 {
     /**
-     * @var string 开发者的环境ID
+     * @var string LH主机的BundleId
      */
-    public $EnvId;
+    public $BundleId;
 
     /**
-     * @var array 域名ID列表，支持批量传递
+     * @var string 主机配置详情json
      */
-    public $DomainIds;
+    public $BundleConfig;
 
     /**
-     * @param string $EnvId 开发者的环境ID
-     * @param array $DomainIds 域名ID列表，支持批量传递
+     * @param string $BundleId LH主机的BundleId
+     * @param string $BundleConfig 主机配置详情json
      */
     function __construct()
     {
@@ -54,12 +54,12 @@ class DeleteAuthDomainRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("EnvId",$param) and $param["EnvId"] !== null) {
-            $this->EnvId = $param["EnvId"];
+        if (array_key_exists("BundleId",$param) and $param["BundleId"] !== null) {
+            $this->BundleId = $param["BundleId"];
         }
 
-        if (array_key_exists("DomainIds",$param) and $param["DomainIds"] !== null) {
-            $this->DomainIds = $param["DomainIds"];
+        if (array_key_exists("BundleConfig",$param) and $param["BundleConfig"] !== null) {
+            $this->BundleConfig = $param["BundleConfig"];
         }
     }
 }
