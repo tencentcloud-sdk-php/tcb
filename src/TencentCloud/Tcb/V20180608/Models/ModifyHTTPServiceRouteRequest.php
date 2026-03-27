@@ -18,28 +18,28 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteCloudBaseGWDomain请求参数结构体
+ * ModifyHTTPServiceRoute请求参数结构体
  *
- * @method string getServiceId() 获取服务ID
- * @method void setServiceId(string $ServiceId) 设置服务ID
- * @method string getDomain() 获取服务域名
- * @method void setDomain(string $Domain) 设置服务域名
+ * @method string getEnvId() 获取环境ID
+ * @method void setEnvId(string $EnvId) 设置环境ID
+ * @method HTTPServiceDomainParam getDomain() 获取域名路由信息
+ * @method void setDomain(HTTPServiceDomainParam $Domain) 设置域名路由信息
  */
-class DeleteCloudBaseGWDomainRequest extends AbstractModel
+class ModifyHTTPServiceRouteRequest extends AbstractModel
 {
     /**
-     * @var string 服务ID
+     * @var string 环境ID
      */
-    public $ServiceId;
+    public $EnvId;
 
     /**
-     * @var string 服务域名
+     * @var HTTPServiceDomainParam 域名路由信息
      */
     public $Domain;
 
     /**
-     * @param string $ServiceId 服务ID
-     * @param string $Domain 服务域名
+     * @param string $EnvId 环境ID
+     * @param HTTPServiceDomainParam $Domain 域名路由信息
      */
     function __construct()
     {
@@ -54,12 +54,13 @@ class DeleteCloudBaseGWDomainRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ServiceId",$param) and $param["ServiceId"] !== null) {
-            $this->ServiceId = $param["ServiceId"];
+        if (array_key_exists("EnvId",$param) and $param["EnvId"] !== null) {
+            $this->EnvId = $param["EnvId"];
         }
 
         if (array_key_exists("Domain",$param) and $param["Domain"] !== null) {
-            $this->Domain = $param["Domain"];
+            $this->Domain = new HTTPServiceDomainParam();
+            $this->Domain->deserialize($param["Domain"]);
         }
     }
 }

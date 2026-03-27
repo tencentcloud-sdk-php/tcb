@@ -18,28 +18,28 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * http访问服务客户端限频
+ * 描述键值对过滤器，用于条件过滤查询。例如过滤ID、名称、状态等
  *
- * @method string getLimitBy() 获取UserID 或 ClientIP 或 None，如果为 None 代表不限制
- * @method void setLimitBy(string $LimitBy) 设置UserID 或 ClientIP 或 None，如果为 None 代表不限制
- * @method integer getLimitValue() 获取限制值
- * @method void setLimitValue(integer $LimitValue) 设置限制值
+ * @method string getName() 获取需要过滤的字段。过滤条件数量限制为10。
+ * @method void setName(string $Name) 设置需要过滤的字段。过滤条件数量限制为10。
+ * @method array getValues() 获取字段的过滤值。
+ * @method void setValues(array $Values) 设置字段的过滤值。
  */
-class CloudBaseClientQPSPolicy extends AbstractModel
+class Filter extends AbstractModel
 {
     /**
-     * @var string UserID 或 ClientIP 或 None，如果为 None 代表不限制
+     * @var string 需要过滤的字段。过滤条件数量限制为10。
      */
-    public $LimitBy;
+    public $Name;
 
     /**
-     * @var integer 限制值
+     * @var array 字段的过滤值。
      */
-    public $LimitValue;
+    public $Values;
 
     /**
-     * @param string $LimitBy UserID 或 ClientIP 或 None，如果为 None 代表不限制
-     * @param integer $LimitValue 限制值
+     * @param string $Name 需要过滤的字段。过滤条件数量限制为10。
+     * @param array $Values 字段的过滤值。
      */
     function __construct()
     {
@@ -54,12 +54,12 @@ class CloudBaseClientQPSPolicy extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("LimitBy",$param) and $param["LimitBy"] !== null) {
-            $this->LimitBy = $param["LimitBy"];
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            $this->Name = $param["Name"];
         }
 
-        if (array_key_exists("LimitValue",$param) and $param["LimitValue"] !== null) {
-            $this->LimitValue = $param["LimitValue"];
+        if (array_key_exists("Values",$param) and $param["Values"] !== null) {
+            $this->Values = $param["Values"];
         }
     }
 }

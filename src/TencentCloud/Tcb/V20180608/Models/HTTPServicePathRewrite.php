@@ -18,28 +18,20 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * http service选项
+ * HTTP访问服务路径重写配置
  *
- * @method string getKey() 获取键
- * @method void setKey(string $Key) 设置键
- * @method string getValue() 获取值
- * @method void setValue(string $Value) 设置值
+ * @method string getPrefix() 获取路径前缀重写。StaticStorePrefix、Prefix只能填一个
+ * @method void setPrefix(string $Prefix) 设置路径前缀重写。StaticStorePrefix、Prefix只能填一个
  */
-class CloudBaseOption extends AbstractModel
+class HTTPServicePathRewrite extends AbstractModel
 {
     /**
-     * @var string 键
+     * @var string 路径前缀重写。StaticStorePrefix、Prefix只能填一个
      */
-    public $Key;
+    public $Prefix;
 
     /**
-     * @var string 值
-     */
-    public $Value;
-
-    /**
-     * @param string $Key 键
-     * @param string $Value 值
+     * @param string $Prefix 路径前缀重写。StaticStorePrefix、Prefix只能填一个
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class CloudBaseOption extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Key",$param) and $param["Key"] !== null) {
-            $this->Key = $param["Key"];
-        }
-
-        if (array_key_exists("Value",$param) and $param["Value"] !== null) {
-            $this->Value = $param["Value"];
+        if (array_key_exists("Prefix",$param) and $param["Prefix"] !== null) {
+            $this->Prefix = $param["Prefix"];
         }
     }
 }

@@ -18,22 +18,33 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateCloudBaseGWAPI返回参数结构体
+ * DescribeHTTPServiceRoute返回参数结构体
  *
- * @method string getAPIId() 获取API ID
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setAPIId(string $APIId) 设置API ID
-注意：此字段可能返回 null，表示取不到有效值。
+ * @method array getDomains() 获取域名路由信息列表
+ * @method void setDomains(array $Domains) 设置域名路由信息列表
+ * @method string getOriginDomain() 获取自定义接入的源站域名（HTTPService接入层域名）
+ * @method void setOriginDomain(string $OriginDomain) 设置自定义接入的源站域名（HTTPService接入层域名）
+ * @method integer getTotalCount() 获取域名总数，分页查询使用总数判断是否已经拉取到所有数据
+ * @method void setTotalCount(integer $TotalCount) 设置域名总数，分页查询使用总数判断是否已经拉取到所有数据
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateCloudBaseGWAPIResponse extends AbstractModel
+class DescribeHTTPServiceRouteResponse extends AbstractModel
 {
     /**
-     * @var string API ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * @var array 域名路由信息列表
      */
-    public $APIId;
+    public $Domains;
+
+    /**
+     * @var string 自定义接入的源站域名（HTTPService接入层域名）
+     */
+    public $OriginDomain;
+
+    /**
+     * @var integer 域名总数，分页查询使用总数判断是否已经拉取到所有数据
+     */
+    public $TotalCount;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -41,8 +52,9 @@ class CreateCloudBaseGWAPIResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $APIId API ID
-注意：此字段可能返回 null，表示取不到有效值。
+     * @param array $Domains 域名路由信息列表
+     * @param string $OriginDomain 自定义接入的源站域名（HTTPService接入层域名）
+     * @param integer $TotalCount 域名总数，分页查询使用总数判断是否已经拉取到所有数据
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -58,8 +70,21 @@ class CreateCloudBaseGWAPIResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("APIId",$param) and $param["APIId"] !== null) {
-            $this->APIId = $param["APIId"];
+        if (array_key_exists("Domains",$param) and $param["Domains"] !== null) {
+            $this->Domains = [];
+            foreach ($param["Domains"] as $key => $value){
+                $obj = new HTTPServiceDomain();
+                $obj->deserialize($value);
+                array_push($this->Domains, $obj);
+            }
+        }
+
+        if (array_key_exists("OriginDomain",$param) and $param["OriginDomain"] !== null) {
+            $this->OriginDomain = $param["OriginDomain"];
+        }
+
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

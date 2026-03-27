@@ -18,16 +18,16 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateStaticStore请求参数结构体
+ * DeleteHTTPServiceRoute请求参数结构体
  *
  * @method string getEnvId() 获取环境ID
  * @method void setEnvId(string $EnvId) 设置环境ID
- * @method boolean getEnableUnion() 获取是否启用统一域名
- * @method void setEnableUnion(boolean $EnableUnion) 设置是否启用统一域名
- * @method ExternalStorage getExternalStorage() 获取外部存储源。
- * @method void setExternalStorage(ExternalStorage $ExternalStorage) 设置外部存储源。
+ * @method string getDomain() 获取域名
+ * @method void setDomain(string $Domain) 设置域名
+ * @method array getPaths() 获取路径列表。为空则表示删除此域名和所有路由
+ * @method void setPaths(array $Paths) 设置路径列表。为空则表示删除此域名和所有路由
  */
-class CreateStaticStoreRequest extends AbstractModel
+class DeleteHTTPServiceRouteRequest extends AbstractModel
 {
     /**
      * @var string 环境ID
@@ -35,19 +35,19 @@ class CreateStaticStoreRequest extends AbstractModel
     public $EnvId;
 
     /**
-     * @var boolean 是否启用统一域名
+     * @var string 域名
      */
-    public $EnableUnion;
+    public $Domain;
 
     /**
-     * @var ExternalStorage 外部存储源。
+     * @var array 路径列表。为空则表示删除此域名和所有路由
      */
-    public $ExternalStorage;
+    public $Paths;
 
     /**
      * @param string $EnvId 环境ID
-     * @param boolean $EnableUnion 是否启用统一域名
-     * @param ExternalStorage $ExternalStorage 外部存储源。
+     * @param string $Domain 域名
+     * @param array $Paths 路径列表。为空则表示删除此域名和所有路由
      */
     function __construct()
     {
@@ -66,13 +66,12 @@ class CreateStaticStoreRequest extends AbstractModel
             $this->EnvId = $param["EnvId"];
         }
 
-        if (array_key_exists("EnableUnion",$param) and $param["EnableUnion"] !== null) {
-            $this->EnableUnion = $param["EnableUnion"];
+        if (array_key_exists("Domain",$param) and $param["Domain"] !== null) {
+            $this->Domain = $param["Domain"];
         }
 
-        if (array_key_exists("ExternalStorage",$param) and $param["ExternalStorage"] !== null) {
-            $this->ExternalStorage = new ExternalStorage();
-            $this->ExternalStorage->deserialize($param["ExternalStorage"]);
+        if (array_key_exists("Paths",$param) and $param["Paths"] !== null) {
+            $this->Paths = $param["Paths"];
         }
     }
 }

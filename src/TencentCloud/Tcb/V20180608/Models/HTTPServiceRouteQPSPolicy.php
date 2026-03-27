@@ -18,28 +18,28 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * http访问服务路由qps策略
+ * 云开发路由限频策略
  *
- * @method integer getQPSTotal() 获取qps限额总量
- * @method void setQPSTotal(integer $QPSTotal) 设置qps限额总量
- * @method CloudBaseClientQPSPolicy getQPSPerClient() 获取客户端限频，如果不限制，LimitBy=None
- * @method void setQPSPerClient(CloudBaseClientQPSPolicy $QPSPerClient) 设置客户端限频，如果不限制，LimitBy=None
+ * @method integer getQPSTotal() 获取QPS值，每秒请求次数
+ * @method void setQPSTotal(integer $QPSTotal) 设置QPS值，每秒请求次数
+ * @method HTTPServiceQPSPerClient getQPSPerClient() 获取客户端限频配置
+ * @method void setQPSPerClient(HTTPServiceQPSPerClient $QPSPerClient) 设置客户端限频配置
  */
-class CloudBaseGWAPIQPSPolicy extends AbstractModel
+class HTTPServiceRouteQPSPolicy extends AbstractModel
 {
     /**
-     * @var integer qps限额总量
+     * @var integer QPS值，每秒请求次数
      */
     public $QPSTotal;
 
     /**
-     * @var CloudBaseClientQPSPolicy 客户端限频，如果不限制，LimitBy=None
+     * @var HTTPServiceQPSPerClient 客户端限频配置
      */
     public $QPSPerClient;
 
     /**
-     * @param integer $QPSTotal qps限额总量
-     * @param CloudBaseClientQPSPolicy $QPSPerClient 客户端限频，如果不限制，LimitBy=None
+     * @param integer $QPSTotal QPS值，每秒请求次数
+     * @param HTTPServiceQPSPerClient $QPSPerClient 客户端限频配置
      */
     function __construct()
     {
@@ -59,7 +59,7 @@ class CloudBaseGWAPIQPSPolicy extends AbstractModel
         }
 
         if (array_key_exists("QPSPerClient",$param) and $param["QPSPerClient"] !== null) {
-            $this->QPSPerClient = new CloudBaseClientQPSPolicy();
+            $this->QPSPerClient = new HTTPServiceQPSPerClient();
             $this->QPSPerClient->deserialize($param["QPSPerClient"]);
         }
     }

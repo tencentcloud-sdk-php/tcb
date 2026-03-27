@@ -18,16 +18,14 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateStaticStore请求参数结构体
+ * CreateHTTPServiceRoute请求参数结构体
  *
  * @method string getEnvId() 获取环境ID
  * @method void setEnvId(string $EnvId) 设置环境ID
- * @method boolean getEnableUnion() 获取是否启用统一域名
- * @method void setEnableUnion(boolean $EnableUnion) 设置是否启用统一域名
- * @method ExternalStorage getExternalStorage() 获取外部存储源。
- * @method void setExternalStorage(ExternalStorage $ExternalStorage) 设置外部存储源。
+ * @method HTTPServiceDomainParam getDomain() 获取域名路由信息
+ * @method void setDomain(HTTPServiceDomainParam $Domain) 设置域名路由信息
  */
-class CreateStaticStoreRequest extends AbstractModel
+class CreateHTTPServiceRouteRequest extends AbstractModel
 {
     /**
      * @var string 环境ID
@@ -35,19 +33,13 @@ class CreateStaticStoreRequest extends AbstractModel
     public $EnvId;
 
     /**
-     * @var boolean 是否启用统一域名
+     * @var HTTPServiceDomainParam 域名路由信息
      */
-    public $EnableUnion;
-
-    /**
-     * @var ExternalStorage 外部存储源。
-     */
-    public $ExternalStorage;
+    public $Domain;
 
     /**
      * @param string $EnvId 环境ID
-     * @param boolean $EnableUnion 是否启用统一域名
-     * @param ExternalStorage $ExternalStorage 外部存储源。
+     * @param HTTPServiceDomainParam $Domain 域名路由信息
      */
     function __construct()
     {
@@ -66,13 +58,9 @@ class CreateStaticStoreRequest extends AbstractModel
             $this->EnvId = $param["EnvId"];
         }
 
-        if (array_key_exists("EnableUnion",$param) and $param["EnableUnion"] !== null) {
-            $this->EnableUnion = $param["EnableUnion"];
-        }
-
-        if (array_key_exists("ExternalStorage",$param) and $param["ExternalStorage"] !== null) {
-            $this->ExternalStorage = new ExternalStorage();
-            $this->ExternalStorage->deserialize($param["ExternalStorage"]);
+        if (array_key_exists("Domain",$param) and $param["Domain"] !== null) {
+            $this->Domain = new HTTPServiceDomainParam();
+            $this->Domain->deserialize($param["Domain"]);
         }
     }
 }
