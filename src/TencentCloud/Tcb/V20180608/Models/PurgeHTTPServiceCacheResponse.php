@@ -18,19 +18,26 @@ namespace TencentCloud\Tcb\V20180608\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeVmSpec返回参数结构体
+ * PurgeHTTPServiceCache返回参数结构体
  *
- * @method array getSpecList() 获取规格列表
- * @method void setSpecList(array $SpecList) 设置规格列表
+ * @method string getCacheType() 获取<p>需要刷新的缓存类型：TCBCDN 或 EO</p><p>枚举值：</p><ul><li>EO： EO缓存</li><li>CDN： CDN缓存</li></ul>
+ * @method void setCacheType(string $CacheType) 设置<p>需要刷新的缓存类型：TCBCDN 或 EO</p><p>枚举值：</p><ul><li>EO： EO缓存</li><li>CDN： CDN缓存</li></ul>
+ * @method string getTaskId() 获取<p>刷新任务ID</p>
+ * @method void setTaskId(string $TaskId) 设置<p>刷新任务ID</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeVmSpecResponse extends AbstractModel
+class PurgeHTTPServiceCacheResponse extends AbstractModel
 {
     /**
-     * @var array 规格列表
+     * @var string <p>需要刷新的缓存类型：TCBCDN 或 EO</p><p>枚举值：</p><ul><li>EO： EO缓存</li><li>CDN： CDN缓存</li></ul>
      */
-    public $SpecList;
+    public $CacheType;
+
+    /**
+     * @var string <p>刷新任务ID</p>
+     */
+    public $TaskId;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +45,8 @@ class DescribeVmSpecResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $SpecList 规格列表
+     * @param string $CacheType <p>需要刷新的缓存类型：TCBCDN 或 EO</p><p>枚举值：</p><ul><li>EO： EO缓存</li><li>CDN： CDN缓存</li></ul>
+     * @param string $TaskId <p>刷新任务ID</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,13 +62,12 @@ class DescribeVmSpecResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SpecList",$param) and $param["SpecList"] !== null) {
-            $this->SpecList = [];
-            foreach ($param["SpecList"] as $key => $value){
-                $obj = new VMSpec();
-                $obj->deserialize($value);
-                array_push($this->SpecList, $obj);
-            }
+        if (array_key_exists("CacheType",$param) and $param["CacheType"] !== null) {
+            $this->CacheType = $param["CacheType"];
+        }
+
+        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
+            $this->TaskId = $param["TaskId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
